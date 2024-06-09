@@ -1,0 +1,39 @@
+* Team 34 Collaboration (Notepad) 
+
+Phase 1 Deliverables:
+- Information Flow Diagram (10%)
+- Enhanced Entity Relationsip Diagram (40%)
+- A project report (50%)
+-- Data Type
+-- Business Logic Contraints
+-- Task Decomposition 
+-- Abstract Code 
+
+
+* 6/5/2024 (zoom meeting) 
+0. Attended - Devin, Ev, Qiyan
+1. First team meeting, discussed roles and responsibilities of each membr in our team
+2. Initial ERR was made
+3. Initial IFD was made 
+
+* 6/7/2024 (zoom meeting) 
+0. Attended - Devin, Ev, Qiyan, Jae
+1. Reviewed ERR
+2. Reviewed IFD
+3. Agreed that we will try to have completed all by Saturday
+4. Meeting recording is avialble here, https://us06web.zoom.us/rec/share/wF9wTtaIH1J6wuZloaQEab8pbP30IJNiudoI3pYWpG7A7esCg98FHMCHJx-Zv8Nl.h356lEMb2f31cSqB
+
+* 6/8/2024 (Whatsapp, Google Docs) 
+0. Attended - Devin, Ev, Qiyan, Jae
+1. Team has completed ERR diagram, https://lucid.app/lucidchart/b0b5ab2e-7500-4880-8991-335ad9aebc2c/edit?shared=true 
+2. Team has completed IFD,  
+3. Team has completed Report, https://docs.google.com/presentation/d/16zCI26m-iyZmEYvbX3A5Jobm7ZTAwduy5DYKGKNynno/edit
+4. Team has to review everything together before converting all to PDF on Sunday
+
+* note 
+- Jae reviewed ERR and the final report, revised some disconnects and added missing abstract code sections. created a Phase_1 folder for the team. 
+- Ev
+- Qiyan
+- Devin - Created initial IFD, and initial table for data types and formatting, created initial EER and made modifications as needed by team, completed task decomposition and abstract code for Login Task 
+
+
