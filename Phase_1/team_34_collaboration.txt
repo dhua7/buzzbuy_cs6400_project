@@ -34,5 +34,6 @@ Phase 1 Deliverables:
 - Jae reviewed ERR and the final report, revised some disconnects and added missing abstract code sections. created a Phase_1 folder for the team. 
 - Ev
 - Qiyan
-- Devin 
+- Devin - Created initial IFD, and initial table for data types and formatting, created initial EER and made modifications as needed by team, completed task decomposition and abstract code for Login Task 
+
 
