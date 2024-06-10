@@ -32,8 +32,8 @@ Phase 1 Deliverables:
 
 * note 
 - Jae - reviewed ERR and the final report, revised some disconnects and added missing abstract code sections. created a Phase_1 folder for the team. 
-- Ev - Completed task decomposition and reviewed abstract code for all other tasks besides Login task, modified Login task, and reviewed final report. 
+- Ev - Completed task decomposition and reviewed abstract code for all other tasks besides Login task, modified Login task, compiled team mate's work into final report, and reviewed/modified report to follow formatting requirements/rubric overall. 
 - Qiyan - Reviewed EER and added missing entities. Reviewed IFD. Created business logic constraints. Created meeting notes for the first meeting.
-- Devin - Created initial IFD, and initial table for data types and formatting, created initial EER and made modifications as needed by team, completed task decomposition and abstract code for Login Task 
+- Devin - Created initial IFD, and initial table for data types and formatting, created initial EER and made modifications as needed by team, completed task decomposition and abstract code for Login Task and View Statistics Task.
 
 
