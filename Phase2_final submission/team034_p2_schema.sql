@@ -2,6 +2,7 @@ CREATE TABLE District (
     DistrictNumber INT PRIMARY KEY NOT NULL
 );
 
+
 CREATE TABLE City (
     CityName VARCHAR(255) NOT NULL,
     State VARCHAR(255) NOT NULL,
@@ -10,20 +11,18 @@ CREATE TABLE City (
 );
 
 CREATE TABLE Store (
-    StoreNumber INT PRIMARY KEY NOT NULL,
-    PhoneNumber VARCHAR(255) NULL,
-    DistrictNumber INT NOT NULL,
-    CityName VARCHAR(255) NOT NULL,
-    FOREIGN KEY (DistrictNumber ) REFERENCES District(DistrictNumber),
-    FOREIGN KEY (CityName) REFERENCES City(CityName),
-    UNIQUE KEY PhoneNumber(PhoneNumber)
+StoreNumber INT PRIMARY KEY NOT NULL,
+PhoneNumber VARCHAR(255) UNIQUE,
+DistrictNumber INT NOT NULL,
+CityName VARCHAR(255) NOT NULL,
+FOREIGN KEY (DistrictNumber) REFERENCES District(DistrictNumber),
+FOREIGN KEY (CityName) REFERENCES City(CityName)
 );
 
 
 CREATE TABLE Manufacturer (
     ManufacturerName VARCHAR(255) PRIMARY KEY NOT NULL
 );
-
 
 CREATE TABLE Product (
     PID INT(50) PRIMARY KEY NOT NULL,
@@ -38,14 +37,13 @@ CREATE TABLE Category (
     CategoryName VARCHAR(255) PRIMARY KEY NOT NULL
 );
 
-
 CREATE TABLE Assignto (
     PID INT(50) NOT NULL,
     CategoryName VARCHAR(255) NOT NULL,
     FOREIGN KEY (PID) REFERENCES Product(PID),
     FOREIGN KEY (CategoryName) REFERENCES Category(CategoryName)
 );
- 
+
 
 CREATE TABLE BusinessDay ( 
     BusinessDate DATE PRIMARY KEY NOT NULL
@@ -71,11 +69,9 @@ CREATE TABLE Sells (
 
 
 CREATE TABLE Holidays (
-    BusinessDate DATE PRIMARY KEY NOT NULL,
-    HolidayName VARCHAR(255) NOT NULL,
-    UNIQUE KEY HolidayName(HolidayName)
+BusinessDate DATE PRIMARY KEY NOT NULL,
+HolidayName VARCHAR(255) UNIQUE
 );
-
 
 CREATE TABLE User (
     EmployeeID VARCHAR(7) PRIMARY KEY NOT NULL,
@@ -102,7 +98,6 @@ CREATE TABLE CanAccess (
 CREATE TABLE Report (
     ReportName VARCHAR(255) PRIMARY KEY NOT NULL
 );
-
 
 CREATE TABLE AuditLogEntry (
     EmployeeID VARCHAR(7) NOT NULL,
