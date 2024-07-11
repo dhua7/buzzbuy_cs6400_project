@@ -1,0 +1,16 @@
+[11-Jul-2024 14:22:53 America/Los_Angeles] PHP Warning:  Undefined variable $password in C:\Program Files\Ampps\www\buzzbuy\login.php on line 25
+[11-Jul-2024 14:25:20 America/Los_Angeles] PHP Warning:  Undefined variable $password in C:\Program Files\Ampps\www\buzzbuy\login.php on line 25
+[11-Jul-2024 14:25:21 America/Los_Angeles] PHP Warning:  Undefined variable $password in C:\Program Files\Ampps\www\buzzbuy\login.php on line 25
+[11-Jul-2024 14:25:22 America/Los_Angeles] PHP Warning:  Undefined variable $password in C:\Program Files\Ampps\www\buzzbuy\login.php on line 25
+[11-Jul-2024 14:25:28 America/Los_Angeles] PHP Warning:  Undefined variable $password in C:\Program Files\Ampps\www\buzzbuy\login.php on line 25
+[11-Jul-2024 14:26:00 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'cs6400_summer24_team034.regularuser' doesn't exist in C:\Program Files\Ampps\www\buzzbuy\view_profile.php:17
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_profile.php(17): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_profile.php on line 17
+[11-Jul-2024 14:33:25 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'cs6400_summer24_team034.regularuser' doesn't exist in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:16
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(16): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 16
+[11-Jul-2024 14:36:32 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 37
