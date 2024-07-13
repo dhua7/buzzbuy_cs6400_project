@@ -1,6 +1,6 @@
 <?php
 include('lib/common.php');
-// written by GTusername1
+// written by Team 34
 
 if($showQueries){
   array_push($query_msg, "showQueries currently turned ON, to disable change to 'false' in lib/common.php");
@@ -9,20 +9,20 @@ if($showQueries){
 //Note: known issue with _POST always empty using PHPStorm built-in web server: Use *AMP server instead
 if( $_SERVER['REQUEST_METHOD'] == 'POST') {
 
-	$enteredEmail = mysqli_real_escape_string($db, $_POST['email']);
+	$enteredEmployeeid = mysqli_real_escape_string($db, $_POST['employeeid']);
 	$enteredPassword = mysqli_real_escape_string($db, $_POST['password']);
 
-    if (empty($enteredEmail)) {
-            array_push($error_msg,  "Please enter an email address.");
+    if (empty($enteredEmployeeid)) {
+            array_push($error_msg,  "Please enter an employee id.");
     }
 
 	if (empty($enteredPassword)) {
 			array_push($error_msg,  "Please enter a password.");
 	}
 	
-    if ( !empty($enteredEmail) && !empty($enteredPassword) )   { 
+    if ( !empty($enteredEmployeeid) && !empty($enteredPassword) )   { 
 
-        $query = "SELECT password FROM User WHERE email='$enteredEmail'";
+        $query = "SELECT employeeid FROM User WHERE employeeid='$enteredEmployeeid' AND '$enteredPassword' = (SELECT lastfourssn + '-' + lastname FROM User WHERE employeeid = '$enteredEmployeeid')";
         
         $result = mysqli_query($db, $query);
         include('lib/show_queries.php');
@@ -30,14 +30,22 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
         
         if (!empty($result) && ($count > 0) ) {
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            $storedPassword = $row['password']; 
+            //$storedPassword = $row['password']; 
+			$storedEmployeeid = $row['employeeid']; 
             
             $options = [
                 'cost' => 8,
             ];
-             //convert the plaintext passwords to their respective hashses
-             // 'michael123' = $2y$08$kr5P80A7RyA0FDPUa8cB2eaf0EqbUay0nYspuajgHRRXM9SgzNgZO
-            $storedHash = password_hash($storedPassword, PASSWORD_DEFAULT , $options);   //may not want this if $storedPassword are stored as hashes (don't rehash a hash)
+			
+			$_SESSION['employeeid'] = $storedEmployeeid;
+            array_push($query_msg, "logging in... ");
+            header(REFRESH_TIME . 'url=view_main.php');		//to view the password hashes and login success/failure
+            
+			//convert the plaintext passwords to their respective hashses
+            // 'michael123' = $2y$08$kr5P80A7RyA0FDPUa8cB2eaf0EqbUay0nYspuajgHRRXM9SgzNgZO
+            
+			/*
+			$storedHash = password_hash($storedPassword, PASSWORD_DEFAULT , $options);   //may not want this if $storedPassword are stored as hashes (don't rehash a hash)
             $enteredHash = password_hash($enteredPassword, PASSWORD_DEFAULT , $options); 
             
             if($showQueries){
@@ -60,9 +68,10 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
                 array_push($error_msg, "Login failed: " . $enteredEmail . NEWLINE);
                 array_push($error_msg, "To demo enter: ". NEWLINE . "michael@bluthco.com". NEWLINE ."michael123");
             }
+			*/
             
         } else {
-                array_push($error_msg, "The username entered does not exist: " . $enteredEmail);
+                array_push($error_msg, "The username entered does not exist: " . $enteredEmployeeid);
             }
     }
 }
@@ -85,12 +94,12 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
                 <form action="login.php" method="post" enctype="multipart/form-data">
                     <div class="title">BuzzBuy Login</div>
                     <div class="login_form_row">
-                        <label class="login_label">Email:</label>
-                        <input type="text" name="email" value="michael@bluthco.com" class="login_input"/>
+                        <label class="login_label">Employee ID:</label>
+                        <input type="text" name="employeeid" value="0001" class="login_input"/>
                     </div>
                     <div class="login_form_row">
                         <label class="login_label">Password:</label>
-                        <input type="password" name="password" value="michael123" class="login_input"/>
+                        <input type="password" name="password" value="1234-Douglas" class="login_input"/>
                     </div>
                     <input type="image" src="img/login.gif" class="login"/>
                     <form/>

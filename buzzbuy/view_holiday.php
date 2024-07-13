@@ -1,33 +1,31 @@
 <?php
 
 include('lib/common.php');
-// written by GTusername3
+// written by Team 34
 
-if (!isset($_SESSION['email'])) {
+if (!isset($_SESSION['employeeid'])) {
 	header('Location: login.php');
 	exit();
 }
 
-$query = "SELECT first_name, last_name " .
+// just to display a signed-in user's information 
+$query = "SELECT firstname, lastname " .
 		 "FROM User " .
-		 "INNER JOIN RegularUser ON User.email = RegularUser.email " .
-		 "WHERE User.email = '{$_SESSION['email']}'";
-         
+		 "WHERE User.employeeid='{$_SESSION['employeeid']}'";
+
 $result = mysqli_query($db, $query);
 include('lib/show_queries.php');
-    
-if (!empty($result) && (mysqli_num_rows($result) > 0) ) {
+ 
+if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    $count = mysqli_num_rows($result);
-    $user_name = $row['first_name'] . " " . $row['last_name'];
 } else {
-        array_push($error_msg,  "SELECT ERROR: User profile <br>" . __FILE__ ." line:". __LINE__ );
+    array_push($error_msg,  "Query ERROR: Failed to get User information...<br>" . __FILE__ ." line:". __LINE__ );
 }
-
+	
 ?>
 
 <?php include("lib/header.php"); ?>
-		<title>GTOnline View Friends</title>
+		<title>BuzzBuy View Holidays</title>
 	</head>
 	
 	<body>
@@ -40,33 +38,27 @@ if (!empty($result) && (mysqli_num_rows($result) > 0) ) {
 					
 					<div class="features">   	
 						<div class="profile_section">
-                        	<div class="subtitle">View Friends</div>   
+                        	<div class="subtitle">View Holidays</div>   
 							<table>
 								<tr>
-									<td class="heading">Name</td>
-									<td class="heading">Relationship</td>
-									<td class="heading">Connected Since</td>
+									<td class="heading">Holiday Name</td>
+									<td class="heading">Business Date</td>
 								</tr>
 																
 								<?php								
-                                    $query = "SELECT first_name, last_name, relationship, date_connected " .
-                                             "FROM Friendship " .
-                                             "INNER JOIN RegularUser ON RegularUser.email = Friendship.friend_email " .
-                                             "INNER JOIN User ON User.email = RegularUser.email " .
-                                             "WHERE Friendship.email='{$_SESSION['email']}'" .
-                                             "AND date_connected IS NOT NULL " .
-                                             "ORDER BY date_connected DESC";
+                                    $query = "SELECT holidayname, businessdate " .
+                                             "FROM holidays " .
+                                             "ORDER BY businessdate DESC";
                                              
                                     $result = mysqli_query($db, $query);
                                      if (!empty($result) && (mysqli_num_rows($result) == 0) ) {
-                                         array_push($error_msg,  "SELECT ERROR: find Friendship <br>" . __FILE__ ." line:". __LINE__ );
+                                         array_push($error_msg,  "SELECT ERROR: find Holidays <br>" . __FILE__ ." line:". __LINE__ );
                                     }
                                     
                                     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
                                         print "<tr>";
-                                        print "<td>{$row['first_name']} {$row['last_name']}</td>";
-                                        print "<td>{$row['relationship']}</td>";
-                                        print "<td>{$row['date_connected']}</td>";
+                                        print "<td>{$row['holidayname']}</td>";
+                                        print "<td>{$row['businessdate']}</td>";
                                         print "</tr>";							
                                     }									
                                 ?>
