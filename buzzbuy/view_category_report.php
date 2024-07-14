@@ -25,7 +25,7 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
 ?>
 
 <?php include("lib/header.php"); ?>
-		<title>BuzzBuy View Category</title>
+		<title>BuzzBuy View Holidays</title>
 	</head>
 	
 	<body>
@@ -42,28 +42,31 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
 							<table>
 								<tr>
 									<td class="heading">Category Name</td>
-									<td class="heading">Total Number of Products</td>
-									<td class="heading">Total Number of Manufacturers</td>
-									<td class="heading">Average Retail Price</td>
+									<td class="heading">Total Products</td>
+									<td class="heading">Total Manufacturers</td>
+									<td class="heading">Average Retail Prices</td>
 								</tr>
 																
 								<?php								
-                                    $query = "SELECT assignto.categoryname, COUNT(DISTINCT product.pid) AS TotalProducts, COUNT(DISTINCT product.manufacturername) AS TotalManufacturers, AVG(product.retailprice) AS AvgRetailPrice " .
-											 "FROM assignto " .
-											 "JOIN product ON assignto.pid = product.pid " .
-											 "GROUP BY assignto.categoryname" .
-											 "ORDER BY assignto.categoryname ASC";
+                                    $query = "SELECT assignto.CategoryName, 
+                                             COUNT(DISTINCT product.PID) AS TotalProducts, 
+                                             COUNT(DISTINCT product.ManufacturerName) AS TotalManufacturers, 
+                                             AVG(product.RetailPrice) AS AvgRetailPrice 
+											 FROM assignto 
+											 JOIN product ON assignto.PID = product.PID 
+											 GROUP BY assignto.CategoryName 
+											 ORDER BY assignto.CategoryName ASC";
                                              
                                     $result = mysqli_query($db, $query);
                                      if (!empty($result) && (mysqli_num_rows($result) == 0) ) {
-                                         array_push($error_msg,  "SELECT ERROR: find Friendship <br>" . __FILE__ ." line:". __LINE__ );
+                                         array_push($error_msg,  "SELECT ERROR: find Category <br>" . __FILE__ ." line:". __LINE__ );
                                     }
                                     
                                     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
                                         print "<tr>";
                                         print "<td>{$row['CategoryName']}</td>";
-                                        print "<td>{$row['TotalProducts']}</td>";
-                                        print "<td>{$row['TotalManufacturers']}</td>";
+										print "<td>{$row['TotalProducts']}</td>";
+										print "<td>{$row['TotalManufacturers']}</td>";
 										print "<td>{$row['AvgRetailPrice']}</td>";
                                         print "</tr>";							
                                     }									
