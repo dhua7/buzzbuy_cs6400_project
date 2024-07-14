@@ -52,7 +52,8 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
                                     $query = "SELECT Manufacturer.ManufacturerName, COUNT(Product.PID) AS ProductCount, AVG(Product.RetailPrice) AS AveragePrice, MAX(Product.RetailPrice) AS MaxPrice, MIN(Product.RetailPrice) AS MinPrice
 											 FROM Manufacturer JOIN Product ON Product.ManufacturerName = Manufacturer.ManufacturerName
 											 GROUP BY Manufacturer.ManufacturerName
-											 ORDER BY AveragePrice DESC" ;
+											 ORDER BY AveragePrice DESC
+											 LIMIT 100" ;
                                              
                                     $result = mysqli_query($db, $query);
                                      if (!empty($result) && (mysqli_num_rows($result) == 0) ) {
@@ -60,12 +61,14 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
                                     }
                                     
                                     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+										$manufacturerName = urlencode($row['ManufacturerName']);
                                         print "<tr>";
                                         print "<td>{$row['ManufacturerName']}</td>";
                                         print "<td>{$row['ProductCount']}</td>";
                                         print "<td>{$row['AveragePrice']}</td>";
 										print "<td>{$row['MaxPrice']}</td>";
 										print "<td>{$row['MinPrice']}</td>";
+										print "<td><a href='manufacturer_details.php?manufacturer=$manufacturerName'>View Details</a></td>";
                                         print "</tr>";							
                                     }									
                                 ?>
