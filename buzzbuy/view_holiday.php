@@ -1,7 +1,13 @@
 <?php
 
 include('lib/common.php');
+
+//----------------------------------------------------------------
 // written by Team 34
+//
+// this is to get a currently signed-in user's employee id from a client side session 
+// also, this displays the SQL command that was used to get a user's information too.
+
 
 if (!isset($_SESSION['employeeid'])) {
 	header('Location: login.php');

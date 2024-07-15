@@ -41,35 +41,6 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
             array_push($query_msg, "logging in... ");
             header(REFRESH_TIME . 'url=view_main.php');		//to view the password hashes and login success/failure
             
-			//convert the plaintext passwords to their respective hashses
-            // 'michael123' = $2y$08$kr5P80A7RyA0FDPUa8cB2eaf0EqbUay0nYspuajgHRRXM9SgzNgZO
-            
-			/*
-			$storedHash = password_hash($storedPassword, PASSWORD_DEFAULT , $options);   //may not want this if $storedPassword are stored as hashes (don't rehash a hash)
-            $enteredHash = password_hash($enteredPassword, PASSWORD_DEFAULT , $options); 
-            
-            if($showQueries){
-                array_push($query_msg, "Plaintext entered password: ". $enteredPassword);
-                //Note: because of salt, the entered and stored password hashes will appear different each time
-                array_push($query_msg, "Entered Hash:". $enteredHash);
-                array_push($query_msg, "Stored Hash:  ". $storedHash . NEWLINE);  //note: change to storedHash if tables store the plaintext password value
-                //unsafe, but left as a learning tool uncomment if you want to log passwords with hash values
-                //error_log('email: '. $enteredEmail  . ' password: '. $enteredPassword . ' hash:'. $enteredHash);
-            }
-            
-            //depends on if you are storing the hash $storedHash or plaintext $storedPassword 
-            if (password_verify($enteredPassword, $storedHash) ) {
-                array_push($query_msg, "Password is Valid! ");
-                $_SESSION['email'] = $enteredEmail;
-                array_push($query_msg, "logging in... ");
-                header(REFRESH_TIME . 'url=view_profile.php');		//to view the password hashes and login success/failure
-                
-            } else {
-                array_push($error_msg, "Login failed: " . $enteredEmail . NEWLINE);
-                array_push($error_msg, "To demo enter: ". NEWLINE . "michael@bluthco.com". NEWLINE ."michael123");
-            }
-			*/
-            
         } else {
                 array_push($error_msg, "The username entered does not exist: " . $enteredEmployeeid);
             }
