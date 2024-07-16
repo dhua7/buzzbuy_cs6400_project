@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 
 <?php include("lib/header.php"); ?>
-<title>GTOnline Friend Search</title>
+<title>Report: Revenue by Year by State</title>
 	</head>
 	
 	<body>
