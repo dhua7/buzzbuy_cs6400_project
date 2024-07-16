@@ -41,6 +41,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
             array_push($query_msg, "logging in... ");
             header(REFRESH_TIME . 'url=view_main.php');		//to view the password hashes and login success/failure
             
+<<<<<<< HEAD
 			//convert the plaintext passwords to their respective hashses
             // 'michael123' = $2y$08$kr5P80A7RyA0FDPUa8cB2eaf0EqbUay0nYspuajgHRRXM9SgzNgZO
             
@@ -70,6 +71,8 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST') {
             }
 			*/
             
+=======
+>>>>>>> main
         } else {
                 array_push($error_msg, "The username entered does not exist: " . $enteredEmployeeid);
             }
