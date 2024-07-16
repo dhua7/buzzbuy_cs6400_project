@@ -14,8 +14,6 @@ Stack trace:
 #1 {main}
   thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 16
 [11-Jul-2024 14:36:32 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 37
-<<<<<<< HEAD
-=======
 [11-Jul-2024 14:49:13 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 37
 [14-Jul-2024 09:19:23 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
 [14-Jul-2024 09:24:55 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
@@ -51,4 +49,3 @@ Stack trace:
 [14-Jul-2024 19:41:57 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 103
 [14-Jul-2024 19:41:57 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 109
 [14-Jul-2024 19:41:57 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
->>>>>>> main
