@@ -52,8 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			 array_push($error_msg,  "INSERT ERROR: Holiday... <br>".  __FILE__ ." line:". __LINE__ );
 			 //array_push($error_msg,  'Error# '. mysqli_errno($db) . ": " . mysqli_error($db));
 		 } else {
-			echo '<script>alert("A new holiday record was added successfully!")</script>'; 
-			header('Location: view_holiday.php');
+			$message = "A new holiday record was added successfully!";
+			echo "<script>alert('$message');</script>"; 
 		 }
 
 	 }

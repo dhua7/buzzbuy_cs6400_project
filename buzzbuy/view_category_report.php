@@ -85,20 +85,22 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
                <?php include("lib/footer.php"); ?>
 		 
 		</div>
-				<!-- add a log entry -->
+		<!-- add a log entry -->
+		<!-- JL: report_name must be one of names defined in our "report" table, otherwise a log entry won't be added to the table. --> 
 		<?php 
-			$report_name = "Report: View Category";
+			$report_name = "Category Report";
 			$timestamp = date("Y-m-d H:i:s");
 	
 			// Escape variables for safety
 			$escaped_employeeid = mysqli_real_escape_string($db, $_SESSION['employeeid']);
 			$escaped_timestamp = mysqli_real_escape_string($db, $timestamp);
 			$escaped_report_name = mysqli_real_escape_string($db, $report_name);
-
-			$audit_query = "INSERT INTO AuditLogEntry (employeeid, timestamp, reportName) VALUES ('{$escaped_employeeid}', '{$escaped_timestamp}', '{$escaped_report_name}')";
+			
+			$audit_query = "INSERT INTO auditlogentry (employeeid, reportname, timestamp) VALUES ('{$escaped_employeeid}', '{$escaped_report_name}', '{$escaped_timestamp}');";
 
 			// Execute the query
 			$result = mysqli_query($db, $audit_query);
+			
     		include('lib/show_queries.php');
 
 			if ($result === False) {
