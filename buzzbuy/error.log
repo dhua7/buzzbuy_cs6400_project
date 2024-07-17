@@ -181,3 +181,128 @@ Stack trace:
   thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
 [16-Jul-2024 17:44:26 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 103
 [16-Jul-2024 17:44:26 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 109
+[17-Jul-2024 13:36:47 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:96
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(96): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 96
+[17-Jul-2024 13:36:52 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 103
+[17-Jul-2024 13:36:52 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 109
+[17-Jul-2024 13:37:01 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 103
+[17-Jul-2024 13:37:01 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 109
+[17-Jul-2024 13:37:01 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:96
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(96): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 96
+[17-Jul-2024 13:43:21 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 104
+[17-Jul-2024 13:43:21 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 110
+[17-Jul-2024 13:43:33 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 104
+[17-Jul-2024 13:43:33 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 110
+[17-Jul-2024 13:43:33 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:96
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(96): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 96
+[17-Jul-2024 13:44:07 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 104
+[17-Jul-2024 13:44:07 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 110
+[17-Jul-2024 13:44:19 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 104
+[17-Jul-2024 13:44:19 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 110
+[17-Jul-2024 13:44:19 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:96
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(96): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 96
+[17-Jul-2024 13:46:08 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 105
+[17-Jul-2024 13:46:08 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 111
+[17-Jul-2024 13:46:21 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 105
+[17-Jul-2024 13:46:21 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 111
+[17-Jul-2024 13:46:21 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:96
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(96): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 96
+[17-Jul-2024 13:48:40 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 105
+[17-Jul-2024 13:48:40 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 111
+[17-Jul-2024 13:48:50 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 105
+[17-Jul-2024 13:48:50 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 111
+[17-Jul-2024 13:49:06 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 105
+[17-Jul-2024 13:49:06 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 111
+[17-Jul-2024 13:49:26 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:96
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(96): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 96
+[17-Jul-2024 13:50:31 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:97
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(97): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 97
+[17-Jul-2024 13:51:32 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:97
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(97): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 97
+[17-Jul-2024 13:51:35 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 105
+[17-Jul-2024 13:51:35 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 111
+[17-Jul-2024 13:51:36 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:97
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(97): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 97
+[17-Jul-2024 13:54:53 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:97
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(97): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 97
+[17-Jul-2024 13:54:55 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:97
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(97): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 97
+[17-Jul-2024 13:57:48 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:97
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(97): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 97
+[17-Jul-2024 14:01:16 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 105
+[17-Jul-2024 14:01:16 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 111
+[17-Jul-2024 14:01:18 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 105
+[17-Jul-2024 14:01:18 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 111
+[17-Jul-2024 14:01:20 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:100
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(100): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 100
+[17-Jul-2024 14:02:39 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 105
+[17-Jul-2024 14:02:39 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 111
+[17-Jul-2024 14:02:40 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:103
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(103): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 103
+[17-Jul-2024 14:04:32 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 105
+[17-Jul-2024 14:04:32 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 111
+[17-Jul-2024 14:04:41 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 105
+[17-Jul-2024 14:04:41 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 111
+[17-Jul-2024 14:04:41 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:97
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(97): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 97
+[17-Jul-2024 14:08:42 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 105
+[17-Jul-2024 14:08:42 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 111
+[17-Jul-2024 14:08:43 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:97
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(97): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 97
+[17-Jul-2024 14:13:36 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 105
+[17-Jul-2024 14:13:36 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 111
+[17-Jul-2024 14:18:47 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_product_report.php on line 37
+[17-Jul-2024 14:18:47 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_product_report.php:101
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_product_report.php(101): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_product_report.php on line 101
+[17-Jul-2024 14:20:15 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_product_report.php on line 37
