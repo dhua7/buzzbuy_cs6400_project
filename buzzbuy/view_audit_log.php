@@ -1,7 +1,13 @@
 <?php
 
 include('lib/common.php');
+
+//----------------------------------------------------------------
 // written by Team 34
+//
+// this is to get a currently signed-in user's employee id from a client side session 
+// also, this displays the SQL command that was used to get a user's information too.
+
 
 if (!isset($_SESSION['employeeid'])) {
 	header('Location: login.php');
@@ -21,61 +27,73 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
 } else {
     array_push($error_msg,  "Query ERROR: Failed to get User information...<br>" . __FILE__ ." line:". __LINE__ );
 }
+	
 
-// Check if the user has access to audit logs
-$sql = "SELECT AccessToAuditLog FROM User WHERE EmployeeID = '{$_SESSION['employeeid']}'";
-$result2 = $conn->query($sql);
-if ($result2 && $row = $result2->fetch_assoc()) {
-    $accessToAuditLog = $row['AccessToAuditLog'];
+// Create an entry in the audit log
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
-    // Check if the user is granted access
-    if ($accessToAuditLog) {
-        // User has access, retrieve the top 100 most recent audit logs
-        $receiveAuditLog = "SELECT TOP 100 AuditLogEntry.ReportName, User.EmployeeID,User.FirstName, User.LastName, AuditLogEntry.TimeStamp " . 
-			   "FROM AuditLogEntry JOIN User ON AuditLogEntry.EmployeeID = User.EmployeeID " .
-			   "ORDER BY AuditLogEntry.TimeStamp DESC ";
-        $result3 = $conn->query($receiveAuditLog);
+	$report_name = "Report: View Holidays";
+	$timestamp = date("Y-m-d H:i:s");
 
-	}
+	// Escape variables for safety
+	$escaped_employeeid = mysqli_real_escape_string($db, $_SESSION['employeeid']);
+	$escaped_timestamp = mysqli_real_escape_string($db, $timestamp);
+	$escaped_report_name = mysqli_real_escape_string($db, $report_name);
+
+	$audit_query = "INSERT INTO AuditLogEntry (employeeid, timestamp, reportName) VALUES ('$escaped_employeeid', '$escaped_timestamp', '$escaped_report_name')";
+
+	// Execute the query
+	$result = mysqli_query($db, $audit_query);
+
+	include('lib/show_queries.php');
+
+	if ($result === false) {
+		array_push($error_msg, "Error: Failed to add Audit Log Entry: " . mysqli_error($db));
+	} 
 }
 
- 
 ?>
 
 <?php include("lib/header.php"); ?>
-		<title>View Audit Log</title>
+		<title>BuzzBuy View Audit Log</title>
 	</head>
+	
 	<body>
         <div id="main_container">
 		    <?php include("lib/menu.php"); ?>
             
 			<div class="center_content">
 				<div class="center_left">
-					<div class="title_name"><?php print $user_name; ?></div>          
+					<div class="title_name"></div>          
 					
 					<div class="features">   	
 						<div class="profile_section">
                         	<div class="subtitle">View Audit Log</div>   
 							<table>
 								<tr>
-									<td class="heading">Year</td>
-									<td class="heading">Total AC Units Sold</td>
-									<td class="heading">Average AC units sold per day</td>
-									<td class="heading">Total AC Units Sold on GroundHog Day</td>
+									<td class="heading">Employee ID</td>
+									<td class="heading">Time Stamp</td>
+									<td class="heading">Report Name</td>
 								</tr>
 																
 								<?php								
-                                    if (isset($result2)) {
-										while ($row = mysqli_fetch_array($result3, MYSQLI_ASSOC)){
-											print "<tr>";
-											print "<td>{$row['ReportName']}</td>";
-											print "<td>{$row['EmployeeID']}</td>";
-											print "<td>{$row['FirstName']}</td>";
-											print "<td>{$row['LastName']}</td>";	
-											print "<td>{$row['TimeStamp']}</td>";											
-											print "</tr>";
-										}			
-									} ?>
+                                    $query = "SELECT employeeid, timestamp, reportname " .
+                                             "FROM auditlogentry " .
+                                             "ORDER BY timestamp DESC";
+                                             
+                                    $result = mysqli_query($db, $query);
+                                     if (!empty($result) && (mysqli_num_rows($result) == 0) ) {
+                                         array_push($error_msg,  "SELECT ERROR: find AuditLogEntry <br>" . __FILE__ ." line:". __LINE__ );
+                                    }
+                                    
+                                    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+                                        print "<tr>";
+                                        print "<td>{$row['employeeid']}</td>";
+                                        print "<td>{$row['timestamp']}</td>";
+										print "<td>{$row['reportname']}</td>";
+                                        print "</tr>";							
+                                    }									
+                                ?>
 							</table>						
 						</div>	
 					 </div> 
@@ -91,5 +109,3 @@ if ($result2 && $row = $result2->fetch_assoc()) {
 		</div>
 	</body>
 </html>
-
-

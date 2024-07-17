@@ -1,33 +1,31 @@
 <?php
 
 include('lib/common.php');
-// written by GTusername3
+// written by Team 34
 
-if (!isset($_SESSION['email'])) {
+if (!isset($_SESSION['employeeid'])) {
 	header('Location: login.php');
 	exit();
 }
 
-$query = "SELECT first_name, last_name " .
+// just to display a signed-in user's information 
+$query = "SELECT firstname, lastname " .
 		 "FROM User " .
-		 "INNER JOIN RegularUser ON User.email = RegularUser.email " .
-		 "WHERE User.email = '{$_SESSION['email']}'";
-         
+		 "WHERE User.employeeid='{$_SESSION['employeeid']}'";
+
 $result = mysqli_query($db, $query);
 include('lib/show_queries.php');
-    
-if (!empty($result) && (mysqli_num_rows($result) > 0) ) {
+ 
+if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    $count = mysqli_num_rows($result);
-    $user_name = $row['first_name'] . " " . $row['last_name'];
 } else {
-        array_push($error_msg,  "SELECT ERROR: User profile <br>" . __FILE__ ." line:". __LINE__ );
+    array_push($error_msg,  "Query ERROR: Failed to get User information...<br>" . __FILE__ ." line:". __LINE__ );
 }
-
+	
 ?>
 
 <?php include("lib/header.php"); ?>
-		<title>GTOnline View Friends</title>
+		<title>BuzzBuy View Manufacturer's Product</title>
 	</head>
 	
 	<body>
@@ -40,22 +38,22 @@ if (!empty($result) && (mysqli_num_rows($result) > 0) ) {
 					
 					<div class="features">   	
 						<div class="profile_section">
-                        	<div class="subtitle">View Friends</div>   
+                        	<div class="subtitle">View Manufacturer's Product</div>   
 							<table>
 								<tr>
-									<td class="heading">Name</td>
-									<td class="heading">Relationship</td>
-									<td class="heading">Connected Since</td>
+									<td class="heading">Manufacturer's Name</td>
+									<td class="heading">Total Number of Products</td>
+									<td class="heading">Average Retail Price</td>
+									<td class="heading">Minimum Retail Price</td>
+									<td class="heading">Maximum Retail Price</td>
 								</tr>
 																
 								<?php								
-                                    $query = "SELECT first_name, last_name, relationship, date_connected " .
-                                             "FROM Friendship " .
-                                             "INNER JOIN RegularUser ON RegularUser.email = Friendship.friend_email " .
-                                             "INNER JOIN User ON User.email = RegularUser.email " .
-                                             "WHERE Friendship.email='{$_SESSION['email']}'" .
-                                             "AND date_connected IS NOT NULL " .
-                                             "ORDER BY date_connected DESC";
+                                    $query = "SELECT Manufacturer.ManufacturerName, COUNT(Product.PID) AS ProductCount, AVG(Product.RetailPrice) AS AveragePrice, MAX(Product.RetailPrice) AS MaxPrice, MIN(Product.RetailPrice) AS MinPrice
+											 FROM Manufacturer JOIN Product ON Product.ManufacturerName = Manufacturer.ManufacturerName
+											 GROUP BY Manufacturer.ManufacturerName
+											 ORDER BY AveragePrice DESC
+											 LIMIT 100" ;
                                              
                                     $result = mysqli_query($db, $query);
                                      if (!empty($result) && (mysqli_num_rows($result) == 0) ) {
@@ -63,10 +61,14 @@ if (!empty($result) && (mysqli_num_rows($result) > 0) ) {
                                     }
                                     
                                     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+										$manufacturerName = urlencode($row['ManufacturerName']);
                                         print "<tr>";
-                                        print "<td>{$row['first_name']} {$row['last_name']}</td>";
-                                        print "<td>{$row['relationship']}</td>";
-                                        print "<td>{$row['date_connected']}</td>";
+                                        print "<td>{$row['ManufacturerName']}</td>";
+                                        print "<td>{$row['ProductCount']}</td>";
+                                        print "<td>{$row['AveragePrice']}</td>";
+										print "<td>{$row['MaxPrice']}</td>";
+										print "<td>{$row['MinPrice']}</td>";
+										print "<td><a href='manufacturer_details.php?manufacturer=$manufacturerName'>View Details</a></td>";
                                         print "</tr>";							
                                     }									
                                 ?>
@@ -83,5 +85,25 @@ if (!empty($result) && (mysqli_num_rows($result) > 0) ) {
                <?php include("lib/footer.php"); ?>
 		 
 		</div>
+		<!-- add a log entry -->
+		<?php 
+			$report_name = "Report: View Manufacturer's Product";
+			$timestamp = date("Y-m-d H:i:s");
+	
+			// Escape variables for safety
+			$escaped_employeeid = mysqli_real_escape_string($db, $_SESSION['employeeid']);
+			$escaped_timestamp = mysqli_real_escape_string($db, $timestamp);
+			$escaped_report_name = mysqli_real_escape_string($db, $report_name);
+
+			$audit_query = "INSERT INTO AuditLogEntry (employeeid, timestamp, reportName) VALUES ('{$escaped_employeeid}', '{$escaped_timestamp}', '{$escaped_report_name}')";
+
+			// Execute the query
+			$result = mysqli_query($db, $audit_query);
+    		include('lib/show_queries.php');
+
+			if ($result === False) {
+				array_push($error_msg, "Error: Failed to add Audit Log Entry: " . mysqli_error($db));
+			}
+		?>
 	</body>
 </html>

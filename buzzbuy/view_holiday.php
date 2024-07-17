@@ -27,7 +27,7 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
 } else {
     array_push($error_msg,  "Query ERROR: Failed to get User information...<br>" . __FILE__ ." line:". __LINE__ );
 }
-	
+
 ?>
 
 <?php include("lib/header.php"); ?>
@@ -40,7 +40,7 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
             
 			<div class="center_content">
 				<div class="center_left">
-					<div class="title_name"><?php print $user_name; ?></div>          
+					<div class="title_name"> </div>          
 					
 					<div class="features">   	
 						<div class="profile_section">
@@ -79,7 +79,26 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
 			</div>    
 
                <?php include("lib/footer.php"); ?>
-		 
 		</div>
+		<!-- add a log entry -->
+		<?php 
+			$report_name = "Report: View Holidays";
+			$timestamp = date("Y-m-d H:i:s");
+	
+			// Escape variables for safety
+			$escaped_employeeid = mysqli_real_escape_string($db, $_SESSION['employeeid']);
+			$escaped_timestamp = mysqli_real_escape_string($db, $timestamp);
+			$escaped_report_name = mysqli_real_escape_string($db, $report_name);
+
+			$audit_query = "INSERT INTO AuditLogEntry (employeeid, timestamp, reportName) VALUES ('{$escaped_employeeid}', '{$escaped_timestamp}', '{$escaped_report_name}')";
+
+			// Execute the query
+			$result = mysqli_query($db, $audit_query);
+    		include('lib/show_queries.php');
+
+			if ($result === False) {
+				array_push($error_msg, "Error: Failed to add Audit Log Entry: " . mysqli_error($db));
+			}
+		?>
 	</body>
 </html>

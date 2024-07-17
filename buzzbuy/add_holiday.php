@@ -89,7 +89,7 @@ function is_date( $str ) {
     
 			<div class="center_content">	
 				<div class="center_left">
-					<div class="title_name"><?php print $row['firstname'] . ' ' . $row['lastname']; ?></div>          
+					<div class="title_name"></div>          
 					<div class="features">   
 						
                         <div class="profile_section">
