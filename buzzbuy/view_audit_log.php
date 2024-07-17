@@ -31,15 +31,15 @@ if ($result2 && $row = $result2->fetch_assoc()) {
     // Check if the user is granted access
     if ($accessToAuditLog) {
         // User has access, retrieve the top 100 most recent audit logs
-        $sql = "SELECT TOP 100 AuditLogEntry.ReportName, User.EmployeeID,User.FirstName, User.LastName, AuditLogEntry.TimeStamp " . 
+        $receiveAuditLog = "SELECT TOP 100 AuditLogEntry.ReportName, User.EmployeeID,User.FirstName, User.LastName, AuditLogEntry.TimeStamp " . 
 			   "FROM AuditLogEntry JOIN User ON AuditLogEntry.EmployeeID = User.EmployeeID " .
 			   "ORDER BY AuditLogEntry.TimeStamp DESC ";
-        $result = $conn->query($sql);
+        $result3 = $conn->query($receiveAuditLog);
 
 	}
 }
 
-
+ 
 ?>
 
 <?php include("lib/header.php"); ?>
@@ -66,7 +66,7 @@ if ($result2 && $row = $result2->fetch_assoc()) {
 																
 								<?php								
                                     if (isset($result2)) {
-										while ($row = mysqli_fetch_array($result2, MYSQLI_ASSOC)){
+										while ($row = mysqli_fetch_array($result3, MYSQLI_ASSOC)){
 											print "<tr>";
 											print "<td>{$row['ReportName']}</td>";
 											print "<td>{$row['EmployeeID']}</td>";

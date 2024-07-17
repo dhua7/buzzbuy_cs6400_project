@@ -33,16 +33,17 @@ CREATE TABLE City (
     CityName VARCHAR(255) NOT NULL,
     State VARCHAR(255) NOT NULL,
     Population INT NULL,
-    PRIMARY KEY (CityName)
+    PRIMARY KEY (CityName,State)
 );
 
 CREATE TABLE Store (
-StoreNumber INT PRIMARY KEY NOT NULL,
-PhoneNumber VARCHAR(255) UNIQUE,
-DistrictNumber INT NOT NULL,
-CityName VARCHAR(255) NOT NULL,
-FOREIGN KEY (DistrictNumber) REFERENCES District(DistrictNumber),
-FOREIGN KEY (CityName) REFERENCES City(CityName)
+StoreNumber INT PRIMARY KEY NOT NULL, 
+PhoneNumber VARCHAR(255) UNIQUE NOT NULL, 
+DistrictNumber INT NOT NULL, 
+CityName VARCHAR(255) NOT NULL, 
+State VARCHAR(255) NOT NULL, 
+FOREIGN KEY (DistrictNumber) REFERENCES District(DistrictNumber), 
+FOREIGN KEY (CityName, State) REFERENCES City(CityName, State) 
 );
 
 
@@ -51,7 +52,7 @@ CREATE TABLE Manufacturer (
 );
 
 CREATE TABLE Product (
-    PID INT(50) PRIMARY KEY NOT NULL,
+    PID VARCHAR(50) PRIMARY KEY NOT NULL,
     ProductName VARCHAR(255) NULL,
     ManufacturerName VARCHAR(255) NOT NULL,
     RetailPrice DECIMAL(10, 2) NOT NULL,
@@ -64,8 +65,9 @@ CREATE TABLE Category (
 );
 
 CREATE TABLE Assignto (
-    PID INT(50) NOT NULL,
+    PID VARCHAR(50) NOT NULL,
     CategoryName VARCHAR(255) NOT NULL,
+    PRIMARY KEY (PID, CategoryName), 
     FOREIGN KEY (PID) REFERENCES Product(PID),
     FOREIGN KEY (CategoryName) REFERENCES Category(CategoryName)
 );
@@ -77,34 +79,41 @@ CREATE TABLE BusinessDay (
 
 
 CREATE TABLE Discount (
-    PID INT(50) NOT NULL,
-    BusinessDate DATE NOT NULL,
-    DiscountPrice DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (PID) REFERENCES Product(PID)
+    PID VARCHAR(50) NOT NULL, 
+    BusinessDate DATE NOT NULL, 
+    DiscountPrice DECIMAL(10, 2) NOT NULL, 
+    PRIMARY KEY (PID, BusinessDate),
+    FOREIGN KEY (PID) REFERENCES Product(PID), 
+    FOREIGN KEY (BusinessDate) REFERENCES BusinessDay(BusinessDate) 
+
 );
 
 
 CREATE TABLE Sells (
-    StoreNumber INT NOT NULL,
-    PID INT(50) NOT NULL,
+    StoreNumber INT NOT NULL, 
+    PID VARCHAR(50) NOT NULL, 
     QuantitySold INT (10) NOT NULL,
-    DateSold DATE NOT NULL,
-    FOREIGN KEY (StoreNumber) REFERENCES Store(StoreNumber),
-    FOREIGN KEY (PID) REFERENCES Product(PID)
+    DateSold DATE NOT NULL, 
+    PRIMARY KEY (StoreNumber, PID, DateSold),
+    FOREIGN KEY (StoreNumber) REFERENCES Store(StoreNumber), 
+    FOREIGN KEY (PID) REFERENCES Product(PID), 
+    FOREIGN KEY (DateSold) REFERENCES BusinessDay(BusinessDate) 
+
 );
 
 
 CREATE TABLE Holidays (
 BusinessDate DATE PRIMARY KEY NOT NULL,
-HolidayName VARCHAR(255) UNIQUE
+HolidayName VARCHAR(255) 
 );
 
 CREATE TABLE `User` (
-    EmployeeID VARCHAR(7) PRIMARY KEY NOT NULL,
-    FirstName VARCHAR(255) NOT NULL,
-    LastName VARCHAR(255) NOT NULL,
-    LastFourSSN INT NOT NULL,
-    AccessToAuditLog BOOLEAN DEFAULT FALSE
+    EmployeeID VARCHAR(7) PRIMARY KEY NOT NULL, 
+    FirstName VARCHAR(255) NOT NULL, 
+    LastName VARCHAR(255) NOT NULL, 
+    LastFourSSN VARCHAR(4) NOT NULL, 
+    AccessToAuditLog BOOLEAN DEFAULT FALSE 
+
 );
 
 CREATE TABLE Created (
@@ -126,9 +135,12 @@ CREATE TABLE Report (
 );
 
 CREATE TABLE AuditLogEntry (
-    EmployeeID VARCHAR(7) NOT NULL,
-    Timestamp TIMESTAMP NOT NULL,
+    EmployeeID VARCHAR(7) NOT NULL, 
+    Timestamp TIMESTAMP NOT NULL, 
     ReportName VARCHAR(255) NOT NULL,
-    FOREIGN KEY (EmployeeID) REFERENCES User(EmployeeID)
+    PRIMARY KEY (EmployeeID, Timestamp, ReportName),  
+    FOREIGN KEY (EmployeeID) REFERENCES User(EmployeeID), 
+    FOREIGN KEY (ReportName) REFERENCES Report(ReportName) 
+
 );
 
