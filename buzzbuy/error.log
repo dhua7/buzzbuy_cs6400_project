@@ -1,0 +1,183 @@
+[11-Jul-2024 14:22:53 America/Los_Angeles] PHP Warning:  Undefined variable $password in C:\Program Files\Ampps\www\buzzbuy\login.php on line 25
+[11-Jul-2024 14:25:20 America/Los_Angeles] PHP Warning:  Undefined variable $password in C:\Program Files\Ampps\www\buzzbuy\login.php on line 25
+[11-Jul-2024 14:25:21 America/Los_Angeles] PHP Warning:  Undefined variable $password in C:\Program Files\Ampps\www\buzzbuy\login.php on line 25
+[11-Jul-2024 14:25:22 America/Los_Angeles] PHP Warning:  Undefined variable $password in C:\Program Files\Ampps\www\buzzbuy\login.php on line 25
+[11-Jul-2024 14:25:28 America/Los_Angeles] PHP Warning:  Undefined variable $password in C:\Program Files\Ampps\www\buzzbuy\login.php on line 25
+[11-Jul-2024 14:26:00 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'cs6400_summer24_team034.regularuser' doesn't exist in C:\Program Files\Ampps\www\buzzbuy\view_profile.php:17
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_profile.php(17): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_profile.php on line 17
+[11-Jul-2024 14:33:25 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Table 'cs6400_summer24_team034.regularuser' doesn't exist in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:16
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(16): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 16
+[11-Jul-2024 14:36:32 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 37
+[11-Jul-2024 14:49:13 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 37
+[14-Jul-2024 09:19:23 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
+[14-Jul-2024 09:24:55 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
+[14-Jul-2024 09:28:43 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
+[14-Jul-2024 09:30:32 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
+[14-Jul-2024 09:41:36 America/Los_Angeles] PHP Warning:  Undefined array key "first_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 92
+[14-Jul-2024 09:41:36 America/Los_Angeles] PHP Warning:  Undefined array key "last_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 92
+[14-Jul-2024 09:41:36 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 103
+[14-Jul-2024 09:41:36 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 109
+[14-Jul-2024 09:42:17 America/Los_Angeles] PHP Warning:  Undefined array key "first_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 89
+[14-Jul-2024 09:42:17 America/Los_Angeles] PHP Warning:  Undefined array key "last_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 89
+[14-Jul-2024 09:42:17 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 100
+[14-Jul-2024 09:42:17 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 106
+[14-Jul-2024 09:42:30 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Unknown column 'Date' in 'field list' in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php:48
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\add_holiday.php(48): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 48
+[14-Jul-2024 09:45:16 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 100
+[14-Jul-2024 09:45:16 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 106
+[14-Jul-2024 09:45:26 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 100
+[14-Jul-2024 09:45:26 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 106
+[14-Jul-2024 19:41:39 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Duplicate entry '2024-01-01' for key 'holidays.PRIMARY' in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php:48
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\add_holiday.php(48): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 48
+[14-Jul-2024 19:41:43 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 103
+[14-Jul-2024 19:41:43 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 109
+[14-Jul-2024 19:41:46 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
+[14-Jul-2024 19:41:47 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 103
+[14-Jul-2024 19:41:47 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 109
+[14-Jul-2024 19:41:57 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 103
+[14-Jul-2024 19:41:57 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 109
+[14-Jul-2024 19:41:57 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
+[16-Jul-2024 17:09:13 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
+[16-Jul-2024 17:09:20 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
+[16-Jul-2024 17:09:22 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 103
+[16-Jul-2024 17:09:22 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 109
+[16-Jul-2024 17:12:06 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_ac_report.php on line 62
+[16-Jul-2024 17:16:39 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
+[16-Jul-2024 17:17:51 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
+[16-Jul-2024 17:17:53 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
+[16-Jul-2024 17:17:55 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
+[16-Jul-2024 17:21:18 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
+[16-Jul-2024 17:22:16 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
+[16-Jul-2024 17:25:31 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 43
+[16-Jul-2024 17:29:00 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 103
+[16-Jul-2024 17:29:00 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 109
+[16-Jul-2024 17:29:01 America/Los_Angeles] PHP Warning:  Undefined variable $db in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:29:01 America/Los_Angeles] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:42
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(42): mysqli_real_escape_string()
+#1 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(28): add_audit_entry()
+#2 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:29:07 America/Los_Angeles] PHP Warning:  Undefined variable $db in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:29:07 America/Los_Angeles] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:42
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(42): mysqli_real_escape_string()
+#1 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(28): add_audit_entry()
+#2 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:29:08 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 103
+[16-Jul-2024 17:29:08 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 109
+[16-Jul-2024 17:29:10 America/Los_Angeles] PHP Warning:  Undefined variable $db in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:29:10 America/Los_Angeles] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:42
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(42): mysqli_real_escape_string()
+#1 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(28): add_audit_entry()
+#2 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:29:13 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 103
+[16-Jul-2024 17:29:13 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 109
+[16-Jul-2024 17:30:33 America/Los_Angeles] PHP Warning:  Undefined variable $db in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 44
+[16-Jul-2024 17:30:33 America/Los_Angeles] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:44
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(44): mysqli_real_escape_string()
+#1 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(28): add_audit_entry()
+#2 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 44
+[16-Jul-2024 17:30:39 America/Los_Angeles] PHP Warning:  Undefined variable $db in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 44
+[16-Jul-2024 17:30:39 America/Los_Angeles] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:44
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(44): mysqli_real_escape_string()
+#1 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(28): add_audit_entry()
+#2 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 44
+[16-Jul-2024 17:31:18 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 103
+[16-Jul-2024 17:31:18 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 109
+[16-Jul-2024 17:31:26 America/Los_Angeles] PHP Warning:  Undefined variable $db in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 44
+[16-Jul-2024 17:31:26 America/Los_Angeles] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:44
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(44): mysqli_real_escape_string()
+#1 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(28): add_audit_entry()
+#2 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 44
+[16-Jul-2024 17:31:53 America/Los_Angeles] PHP Warning:  Undefined variable $db in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:31:53 America/Los_Angeles] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:42
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(42): mysqli_real_escape_string()
+#1 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(28): add_audit_entry()
+#2 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:31:56 America/Los_Angeles] PHP Warning:  Undefined variable $db in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:31:56 America/Los_Angeles] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:42
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(42): mysqli_real_escape_string()
+#1 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(28): add_audit_entry()
+#2 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:35:02 America/Los_Angeles] PHP Warning:  Undefined variable $db in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:35:02 America/Los_Angeles] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:42
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(42): mysqli_real_escape_string()
+#1 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(28): add_audit_entry()
+#2 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:37:05 America/Los_Angeles] PHP Fatal error:  Uncaught Error: Call to undefined function add_audit_entry() in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:28
+Stack trace:
+#0 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 28
+[16-Jul-2024 17:37:48 America/Los_Angeles] PHP Fatal error:  Uncaught Error: Call to undefined function add_audit_entry() in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:28
+Stack trace:
+#0 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 28
+[16-Jul-2024 17:37:51 America/Los_Angeles] PHP Fatal error:  Uncaught Error: Call to undefined function add_audit_entry() in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:28
+Stack trace:
+#0 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 28
+[16-Jul-2024 17:38:13 America/Los_Angeles] PHP Warning:  Undefined variable $db in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:38:13 America/Los_Angeles] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:42
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(42): mysqli_real_escape_string()
+#1 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(28): add_audit_entry()
+#2 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:38:18 America/Los_Angeles] PHP Warning:  Undefined variable $db in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:38:18 America/Los_Angeles] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:42
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(42): mysqli_real_escape_string()
+#1 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(28): add_audit_entry()
+#2 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:39:19 America/Los_Angeles] PHP Warning:  Undefined variable $db in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:39:19 America/Los_Angeles] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:42
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(42): mysqli_real_escape_string()
+#1 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(28): add_audit_entry()
+#2 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:39:53 America/Los_Angeles] PHP Warning:  Undefined variable $db in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:39:53 America/Los_Angeles] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:42
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(42): mysqli_real_escape_string()
+#1 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(28): add_audit_entry()
+#2 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:39:59 America/Los_Angeles] PHP Warning:  Undefined variable $db in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:39:59 America/Los_Angeles] PHP Fatal error:  Uncaught TypeError: mysqli_real_escape_string(): Argument #1 ($mysql) must be of type mysqli, null given in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php:42
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(42): mysqli_real_escape_string()
+#1 C:\Program Files\Ampps\www\buzzbuy\view_holiday.php(28): add_audit_entry()
+#2 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_holiday.php on line 42
+[16-Jul-2024 17:44:26 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 103
+[16-Jul-2024 17:44:26 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 109
