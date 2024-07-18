@@ -135,7 +135,7 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
 		<!-- add a log entry -->
 		<!-- JL: report_name must be one of names defined in our "report" table, otherwise a log entry won't be added to the table. --> 
 		<?php 
-			$report_name = "Actual vs Predicted Revenue";
+			$report_name = "Actual versus Predicted Revenue for GPS units";
 			$timestamp = date("Y-m-d H:i:s");
 	
 			// Escape variables for safety

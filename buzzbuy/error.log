@@ -306,3 +306,25 @@ Stack trace:
 #1 {main}
   thrown in C:\Program Files\Ampps\www\buzzbuy\view_product_report.php on line 101
 [17-Jul-2024 14:20:15 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_product_report.php on line 37
+[18-Jul-2024 11:41:03 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_audit_log.php:46
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_audit_log.php(46): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_audit_log.php on line 46
+[18-Jul-2024 11:55:14 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_store_revenue_report.php on line 64
+[18-Jul-2024 11:56:26 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_store_revenue_report.php on line 64
+[18-Jul-2024 11:58:12 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_store_revenue_report.php on line 89
+[18-Jul-2024 11:58:15 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_store_revenue_report.php on line 89
+[18-Jul-2024 11:58:19 America/Los_Angeles] PHP Fatal error:  Uncaught mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`cs6400_summer24_team034`.`auditlogentry`, CONSTRAINT `auditlogentry_ibfk_2` FOREIGN KEY (`ReportName`) REFERENCES `report` (`ReportName`)) in C:\Program Files\Ampps\www\buzzbuy\view_store_revenue_report.php:67
+Stack trace:
+#0 C:\Program Files\Ampps\www\buzzbuy\view_store_revenue_report.php(67): mysqli_query()
+#1 {main}
+  thrown in C:\Program Files\Ampps\www\buzzbuy\view_store_revenue_report.php on line 67
+[18-Jul-2024 11:59:07 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_store_revenue_report.php on line 89
+[18-Jul-2024 11:59:12 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_store_revenue_report.php on line 89
+[18-Jul-2024 12:02:15 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_category_report.php on line 38
+[18-Jul-2024 12:02:55 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_revenue_report.php on line 43
+[18-Jul-2024 12:03:06 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_revenue_report.php on line 43
+[18-Jul-2024 12:03:28 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_product_report.php on line 37
+[18-Jul-2024 12:03:32 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\manufacturer_details.php on line 47
+[18-Jul-2024 12:03:45 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_category_report.php on line 38
