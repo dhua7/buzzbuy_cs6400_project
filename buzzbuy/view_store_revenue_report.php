@@ -8,6 +8,18 @@ if (!isset($_SESSION['employeeid'])) {
 	exit();
 }
 
+// Include the access control script
+include('corpRepAccess.php');
+
+if (!$hasAccess) {
+    echo "<script>
+            alert('Access Denied');
+            window.location.href = '" . (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'view_main.php') . "';
+          </script>";
+    exit();
+}
+
+
 // just to display a signed-in user's information 
 $query = "SELECT firstname, lastname " .
 		 "FROM User " .
@@ -52,15 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 ?>
 
-<?php include("corpRepAccess.php"); ?>
 
 <?php include("lib/header.php"); ?>
 <title>Report: Revenue by Year by State</title>
-	<script>
-        function showAccessDenied() {
-            alert("Access Denied");
-        }
-    </script>
+
 	</head>
 	
 	<body>
@@ -74,11 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						
 						<div class="profile_section">						
 							<div class="subtitle">Search for State</div> 
-							<?php if (!$hasAccess): ?>
-                            	<script>
-                                	showAccessDenied();
-                            	</script>
-                       		<?php else: ?>
 							<form name="searchform" action="view_store_revenue_report.php" method="POST">
 								<table>								
 									<tr>
@@ -112,7 +114,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 									}	?>
 							</table>
 							</div>
-						<?php endif; ?>
 					 </div> 
 				</div> 
                 

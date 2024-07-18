@@ -22,11 +22,19 @@ if ($corpResult->num_rows > 0) {
 
 $conn->close();
 
-if (!$hasAccess) {
-    $referringPage = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'view_main.php';
-    header("Location: $referringPage");
-    exit();
-}
+// If access is denied, handle it here
+//if (!$hasAccess) {
+//    echo "<script>alert('Access Denied');</script>";
+//    header("Location: view_main.php"); // Redirect to a main or previous page
+//    exit();
+//}
+
+//if (!$hasAccess) {
+//    echo "<script>alert('Access Denied');</script>";
+//    $referringPage = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'view_main.php';
+//    header("Location: $referringPage");
+//    exit();
+//}
 
 
 ?>
