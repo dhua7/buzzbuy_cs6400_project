@@ -1,33 +1,37 @@
 <?php
 
 include('lib/common.php');
-// written by GTusername3
 
-if (!isset($_SESSION['email'])) {
+//----------------------------------------------------------------
+// written by Team 34
+//
+// this is to get a currently signed-in user's employee id from a client side session 
+// also, this displays the SQL command that was used to get a user's information too.
+
+
+if (!isset($_SESSION['employeeid'])) {
 	header('Location: login.php');
 	exit();
 }
 
-$query = "SELECT first_name, last_name " .
+// just to display a signed-in user's information 
+$query = "SELECT firstname, lastname " .
 		 "FROM User " .
-		 "INNER JOIN RegularUser ON User.email = RegularUser.email " .
-		 "WHERE User.email = '{$_SESSION['email']}'";
-         
+		 "WHERE User.employeeid='{$_SESSION['employeeid']}'";
+
 $result = mysqli_query($db, $query);
 include('lib/show_queries.php');
-    
-if (!empty($result) && (mysqli_num_rows($result) > 0) ) {
+ 
+if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    $count = mysqli_num_rows($result);
-    $user_name = $row['first_name'] . " " . $row['last_name'];
 } else {
-        array_push($error_msg,  "SELECT ERROR: User profile <br>" . __FILE__ ." line:". __LINE__ );
+    array_push($error_msg,  "Query ERROR: Failed to get User information...<br>" . __FILE__ ." line:". __LINE__ );
 }
 
 ?>
 
 <?php include("lib/header.php"); ?>
-		<title>GTOnline View Friends</title>
+		<title>Buzzbuy View Actual vs. Predicted Revenue for GPS Units</title>
 	</head>
 	
 	<body>
@@ -40,22 +44,61 @@ if (!empty($result) && (mysqli_num_rows($result) > 0) ) {
 					
 					<div class="features">   	
 						<div class="profile_section">
-                        	<div class="subtitle">View Friends</div>   
+                        	<div class="subtitle">View Actual vs. Predicted Revenue for GPS Units</div>   
 							<table>
 								<tr>
-									<td class="heading">Name</td>
-									<td class="heading">Relationship</td>
-									<td class="heading">Connected Since</td>
+									<td class="heading">Product ID</td>
+									<td class="heading">Product Name</td>
+									<td class="heading">Retail Price</td>
+									<td class="heading">Units Sold</td>
+									<td class="heading">Units Sold at Discount</td>
+									<td class="heading">Units Sold at Retail Price</td>
+									<td class="heading">Actual Revenue</td>
+									<td class="heading">Predicted Revenue</td>
+									<td class="heading">Revenue Difference</td>
 								</tr>
 																
 								<?php								
-                                    $query = "SELECT first_name, last_name, relationship, date_connected " .
-                                             "FROM Friendship " .
-                                             "INNER JOIN RegularUser ON RegularUser.email = Friendship.friend_email " .
-                                             "INNER JOIN User ON User.email = RegularUser.email " .
-                                             "WHERE Friendship.email='{$_SESSION['email']}'" .
-                                             "AND date_connected IS NOT NULL " .
-                                             "ORDER BY date_connected DESC";
+                                    $query = "SELECT
+                                              TS.PID,
+                                              TS.ProductName,
+                                              TS.RetailPrice,
+                                              TS.TotalUnitsSold,
+                                              CASE WHEN DS.DiscountUnitsSold IS NULL THEN 0 ELSE DS.DiscountUnitsSold END AS DiscountedUnitsSold,
+                                              TS.TotalUnitsSold - CASE WHEN DS.DiscountUnitsSold IS NULL THEN 0 ELSE DS.DiscountUnitsSold END AS NonDiscountedUnitsSold,
+                                              TS.TotalUnitsSold * TS.RetailPrice - CASE WHEN DS.DiscountedRevenue IS NULL THEN 0 ELSE DS.DiscountedRevenue END AS ActualRevenue,
+                                              TS.TotalUnitsSold * TS.RetailPrice * 0.75 AS PredictedRevenue,
+                                              (TS.TotalUnitsSold * TS.RetailPrice - CASE WHEN DS.DiscountedRevenue IS NULL THEN 0 ELSE DS.DiscountedRevenue END) - (TS.TotalUnitsSold * TS.RetailPrice * 0.75) AS RevenueDifference
+                                              FROM (
+                                              SELECT
+                                              Product.PID,
+                                              Product.ProductName,
+                                              Product.RetailPrice,
+                                              SUM(Sells.QuantitySold) AS TotalUnitsSold
+                                              FROM
+                                              Product
+                                              JOIN Sells ON Product.PID = Sells.PID
+                                              JOIN Assignto ON Product.PID = Assignto.PID
+                                              WHERE
+                                              Assignto.CategoryName = 'GPS'
+                                              GROUP BY
+                                              Product.PID, Product.ProductName, Product.RetailPrice
+                                              ) TS
+                                              LEFT JOIN (
+                                              SELECT
+                                              Discount.PID,
+                                              SUM(Sells.QuantitySold) AS DiscountUnitsSold,
+                                              SUM(Sells.QuantitySold * Discount.DiscountPrice) AS DiscountedRevenue
+											  FROM
+                                              Discount
+                                              JOIN Sells ON Discount.PID = Sells.PID AND Discount.BusinessDate = Sells.DateSold
+                                              GROUP BY
+                                              Discount.PID
+                                              ) DS ON TS.PID = DS.PID
+                                              WHERE
+                                              ABS((TS.TotalUnitsSold * TS.RetailPrice - CASE WHEN DS.DiscountedRevenue IS NULL THEN 0 ELSE DS.DiscountedRevenue END) - (TS.TotalUnitsSold * TS.RetailPrice * 0.75)) > 200
+                                              ORDER BY
+                                              RevenueDifference DESC";
                                              
                                     $result = mysqli_query($db, $query);
                                      if (!empty($result) && (mysqli_num_rows($result) == 0) ) {
@@ -64,9 +107,15 @@ if (!empty($result) && (mysqli_num_rows($result) > 0) ) {
                                     
                                     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
                                         print "<tr>";
-                                        print "<td>{$row['first_name']} {$row['last_name']}</td>";
-                                        print "<td>{$row['relationship']}</td>";
-                                        print "<td>{$row['date_connected']}</td>";
+                                        print "<td>{$row['PID']}</td>";
+                                        print "<td>{$row['ProductName']}</td>";
+                                        print "<td>{$row['RetailPrice']}</td>";
+										print "<td>{$row['TotalUnitsSold']}</td>";
+										print "<td>{$row['DiscountedUnitsSold']}</td>";
+										print "<td>{$row['NonDiscountedUnitsSold']}</td>";
+										print "<td>{$row['ActualRevenue']}</td>";
+										print "<td>{$row['PredictedPrice']}</td>";
+										print "<td>{$row['RevenueDifference']}</td>";
                                         print "</tr>";							
                                     }									
                                 ?>
@@ -83,5 +132,27 @@ if (!empty($result) && (mysqli_num_rows($result) > 0) ) {
                <?php include("lib/footer.php"); ?>
 		 
 		</div>
+		<!-- add a log entry -->
+		<!-- JL: report_name must be one of names defined in our "report" table, otherwise a log entry won't be added to the table. --> 
+		<?php 
+			$report_name = "Actual vs Predicted Revenue";
+			$timestamp = date("Y-m-d H:i:s");
+	
+			// Escape variables for safety
+			$escaped_employeeid = mysqli_real_escape_string($db, $_SESSION['employeeid']);
+			$escaped_timestamp = mysqli_real_escape_string($db, $timestamp);
+			$escaped_report_name = mysqli_real_escape_string($db, $report_name);
+			
+			$audit_query = "INSERT INTO auditlogentry (employeeid, reportname, timestamp) VALUES ('{$escaped_employeeid}', '{$escaped_report_name}', '{$escaped_timestamp}');";
+
+			// Execute the query
+			$result = mysqli_query($db, $audit_query);
+			
+    		include('lib/show_queries.php');
+
+			if ($result === False) {
+				array_push($error_msg, "Error: Failed to add Audit Log Entry: " . mysqli_error($db));
+			}
+		?>
 	</body>
 </html>
