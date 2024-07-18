@@ -52,8 +52,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 ?>
 
+<?php include("corpRepAccess.php"); ?>
+
 <?php include("lib/header.php"); ?>
 <title>Report: Revenue by Year by State</title>
+	<script>
+        function showAccessDenied() {
+            alert("Access Denied");
+        }
+    </script>
 	</head>
 	
 	<body>
@@ -67,7 +74,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						
 						<div class="profile_section">						
 							<div class="subtitle">Search for State</div> 
-							
+							<?php if (!$hasAccess): ?>
+                            	<script>
+                                	showAccessDenied();
+                            	</script>
+                       		<?php else: ?>
 							<form name="searchform" action="view_store_revenue_report.php" method="POST">
 								<table>								
 									<tr>
@@ -79,7 +90,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 									<a href="javascript:searchform.submit();" class="fancy_button">Search</a> 					
 							</form>							
 						</div>
-						
 						<div class='profile_section'>
 						<div class='subtitle'>Search Results</div>
 						<table>
@@ -102,6 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 									}	?>
 							</table>
 							</div>
+						<?php endif; ?>
 					 </div> 
 				</div> 
                 
