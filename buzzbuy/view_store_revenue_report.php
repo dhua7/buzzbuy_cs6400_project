@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Create an entry in the audit log
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-	$report_name = "Report: Air Conditioners on Groundhog Day?";
+	$report_name = "Store Revenue by Year by State";
 	$timestamp = date("Y-m-d H:i:s");
 	
 	// Escape variables for safety
@@ -73,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	} 
 	
 	}
+
 ?>
 
 <?php include("lib/header.php"); ?>
@@ -137,4 +138,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		 
 		</div>
 	</body>	
+	
 </html>

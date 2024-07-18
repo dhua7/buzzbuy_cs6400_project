@@ -1,33 +1,37 @@
 <?php
 
 include('lib/common.php');
-// written by GTusername3
 
-if (!isset($_SESSION['email'])) {
+//----------------------------------------------------------------
+// written by Team 34
+//
+// this is to get a currently signed-in user's employee id from a client side session 
+// also, this displays the SQL command that was used to get a user's information too.
+
+
+if (!isset($_SESSION['employeeid'])) {
 	header('Location: login.php');
 	exit();
 }
 
-$query = "SELECT first_name, last_name " .
+// just to display a signed-in user's information 
+$query = "SELECT firstname, lastname " .
 		 "FROM User " .
-		 "INNER JOIN RegularUser ON User.email = RegularUser.email " .
-		 "WHERE User.email = '{$_SESSION['email']}'";
-         
+		 "WHERE User.employeeid='{$_SESSION['employeeid']}'";
+
 $result = mysqli_query($db, $query);
 include('lib/show_queries.php');
-    
-if (!empty($result) && (mysqli_num_rows($result) > 0) ) {
+ 
+if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    $count = mysqli_num_rows($result);
-    $user_name = $row['first_name'] . " " . $row['last_name'];
 } else {
-        array_push($error_msg,  "SELECT ERROR: User profile <br>" . __FILE__ ." line:". __LINE__ );
+    array_push($error_msg,  "Query ERROR: Failed to get User information...<br>" . __FILE__ ." line:". __LINE__ );
 }
 
 ?>
 
 <?php include("lib/header.php"); ?>
-		<title>GTOnline View Friends</title>
+		<title>GTOnline View Revenue by Population</title>
 	</head>
 	
 	<body>
@@ -40,33 +44,41 @@ if (!empty($result) && (mysqli_num_rows($result) > 0) ) {
 					
 					<div class="features">   	
 						<div class="profile_section">
-                        	<div class="subtitle">View Friends</div>   
+                        	<div class="subtitle">Revenue by Population</div>   
 							<table>
 								<tr>
-									<td class="heading">Name</td>
-									<td class="heading">Relationship</td>
-									<td class="heading">Connected Since</td>
+									<td class="heading">Year</td>
+									<td class="heading">City Size</td>
+									<td class="heading">Total Revenue</td>
 								</tr>
 																
 								<?php								
-                                    $query = "SELECT first_name, last_name, relationship, date_connected " .
-                                             "FROM Friendship " .
-                                             "INNER JOIN RegularUser ON RegularUser.email = Friendship.friend_email " .
-                                             "INNER JOIN User ON User.email = RegularUser.email " .
-                                             "WHERE Friendship.email='{$_SESSION['email']}'" .
-                                             "AND date_connected IS NOT NULL " .
-                                             "ORDER BY date_connected DESC";
+                                    $query = "SELECT YEAR(BusinessDay.BusinessDate) AS Year,
+                                             CASE 
+                                             WHEN City.Population < 3700000 THEN 'Small'
+                                             WHEN City.Population >= 3700000 AND City.Population < 6700000 THEN 'Medium'
+                                             WHEN City.Population >= 6700000 AND City.Population < 9000000 THEN 'Large'
+                                             ELSE 'Extra Large'
+                                             END AS CitySize,
+                                             SUM(Sells.QuantitySold * Product.RetailPrice) AS TotalRevenue
+                                             FROM Sells
+                                             JOIN Store ON Sells.StoreNumber = Store.StoreNumber
+                                             JOIN City ON Store.CityName = City.CityName 
+                                             JOIN Product ON Sells.PID = Product.PID
+                                             JOIN BusinessDay ON Sells.DateSold = BusinessDay.BusinessDate
+                                             GROUP BY Year, CitySize
+                                             ORDER BY Year ASC, CitySize ASC";
                                              
                                     $result = mysqli_query($db, $query);
-                                     if (!empty($result) && (mysqli_num_rows($result) == 0) ) {
-                                         array_push($error_msg,  "SELECT ERROR: find Friendship <br>" . __FILE__ ." line:". __LINE__ );
+                                    if (!empty($result) && (mysqli_num_rows($result) == 0) ) {
+                                        array_push($error_msg,  "SELECT ERROR: find Revenue by Population <br>" . __FILE__ ." line:". __LINE__ );
                                     }
                                     
                                     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
                                         print "<tr>";
-                                        print "<td>{$row['first_name']} {$row['last_name']}</td>";
-                                        print "<td>{$row['relationship']}</td>";
-                                        print "<td>{$row['date_connected']}</td>";
+                                        print "<td>{$row['Year']}</td>";
+                                        print "<td>{$row['CitySize']}</td>";
+                                        print "<td>\${$row['TotalRevenue']}</td>";
                                         print "</tr>";							
                                     }									
                                 ?>
@@ -83,5 +95,27 @@ if (!empty($result) && (mysqli_num_rows($result) > 0) ) {
                <?php include("lib/footer.php"); ?>
 		 
 		</div>
+        <!-- add a log entry -->
+        <!-- JL: report_name must be one of names defined in our "report" table, otherwise a log entry won't be added to the table. --> 
+        <?php 
+            $report_name = "Holidays";
+            $timestamp = date("Y-m-d H:i:s");
+        
+            // Escape variables for safety
+            $escaped_employeeid = mysqli_real_escape_string($db, $_SESSION['employeeid']);
+            $escaped_timestamp = mysqli_real_escape_string($db, $timestamp);
+            $escaped_report_name = mysqli_real_escape_string($db, $report_name);			
+            $audit_query = "INSERT INTO auditlogentry (employeeid, reportname, timestamp) VALUES ('{$escaped_employeeid}', '{$escaped_report_name}', '{$escaped_timestamp}');";
+
+            // Execute the query
+                
+            $result = mysqli_query($db, $audit_query);
+                
+            include('lib/show_queries.php');
+
+            if ($result === False) {
+                array_push($error_msg, "Error: Failed to add Audit Log Entry: " . mysqli_error($db));
+            }
+        ?>
 	</body>
 </html>
