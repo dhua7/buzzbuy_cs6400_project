@@ -4,7 +4,8 @@
 			</div>
 			
 			<div class="nav_bar">
-				<ul>    
+				<ul>
+					<li><a href="view_main.php" <?php if($current_filename=='view_main.php') echo "class='active'"; ?>>View Main</a></li>    
                     <li><a href="view_holiday.php" <?php if($current_filename=='view_holiday.php') echo "class='active'"; ?>>View Holiday</a></li>                       
 					<li><a href="add_holiday.php" <?php if($current_filename=='add_holiday.php') echo "class='active'"; ?>>Add Holiday</a></li>
 					<li><a href="view_product_report.php" <?php if($current_filename=='view_product_report.php') echo "class='active'"; ?>>View Manufacturer's Product Report</a></li>  

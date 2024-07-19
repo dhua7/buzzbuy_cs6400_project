@@ -14,6 +14,35 @@ if (!isset($_SESSION['employeeid'])) {
 	exit();
 }
 
+// SQL query to check access
+$employeeid = $_SESSION['employeeid'];
+
+$auditAccessQuery = "SELECT AccessToAuditLog 
+From User 
+WHERE EmployeeID = '$employeeid'";
+
+// Execute query
+$auditAccessResult = mysqli_query($db, $auditAccessQuery);
+
+// Check if user has access
+$hasAccess = false;
+if ($auditAccessResult->num_rows > 0) {
+	while($row = $auditAccessResult->fetch_assoc()) {
+		if ($row['AccessToAuditLog'] == true) {
+			$hasAccess = true;
+			break;
+		}
+	}
+}
+
+if (!$hasAccess) {
+    echo "<script>
+            alert('Access Denied');
+            window.location.href = '" . (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'view_main.php') . "';
+          </script>";
+    exit();
+}
+
 // just to display a signed-in user's information 
 $query = "SELECT firstname, lastname " .
 		 "FROM User " .
@@ -55,7 +84,7 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
 								<?php								
                                     $query = "SELECT employeeid, timestamp, reportname " .
                                              "FROM auditlogentry " .
-                                             "ORDER BY timestamp DESC";
+                                             "ORDER BY timestamp DESC, EmployeeID ASC";
                                              
                                     $result = mysqli_query($db, $query);
 									include('lib/show_queries.php');

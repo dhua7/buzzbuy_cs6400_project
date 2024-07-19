@@ -84,34 +84,21 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
 		 
 		</div>
 		<!-- add a log entry -->
-<<<<<<< HEAD
-		<?php 
-			$report_name = "Report: View Holidays";
-=======
 		<!-- JL: report_name must be one of names defined in our "report" table, otherwise a log entry won't be added to the table. --> 
 		<?php 
 			$report_name = "Air Conditioners on Groundhog Day?";
->>>>>>> main
 			$timestamp = date("Y-m-d H:i:s");
 	
 			// Escape variables for safety
 			$escaped_employeeid = mysqli_real_escape_string($db, $_SESSION['employeeid']);
 			$escaped_timestamp = mysqli_real_escape_string($db, $timestamp);
 			$escaped_report_name = mysqli_real_escape_string($db, $report_name);
-<<<<<<< HEAD
-
-			$audit_query = "INSERT INTO AuditLogEntry (employeeid, timestamp, reportName) VALUES ('{$escaped_employeeid}', '{$escaped_timestamp}', '{$escaped_report_name}')";
-
-			// Execute the query
-			$result = mysqli_query($db, $audit_query);
-=======
 			
 			$audit_query = "INSERT INTO auditlogentry (employeeid, reportname, timestamp) VALUES ('{$escaped_employeeid}', '{$escaped_report_name}', '{$escaped_timestamp}');";
 
 			// Execute the query
 			$result = mysqli_query($db, $audit_query);
 			
->>>>>>> main
     		include('lib/show_queries.php');
 
 			if ($result === False) {

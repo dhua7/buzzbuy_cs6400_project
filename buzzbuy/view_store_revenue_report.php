@@ -9,15 +9,8 @@ if (!isset($_SESSION['employeeid'])) {
 }
 
 // Include the access control script
-include('corpRepAccess.php');
 
-if (!$hasAccess) {
-    echo "<script>
-            alert('Access Denied');
-            window.location.href = '" . (isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'view_main.php') . "';
-          </script>";
-    exit();
-}
+include('lib/corpRepAccess.php');
 
 
 // just to display a signed-in user's information 
@@ -62,8 +55,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 
-<<<<<<< HEAD
-=======
 	$report_name = "Store Revenue by Year by State";
 	$timestamp = date("Y-m-d H:i:s");
 	
@@ -84,9 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		array_push($error_msg, "Error: Failed to add Audit Log Entry: " . mysqli_error($db));
 	} 
 	
-	}
 
->>>>>>> main
 ?>
 
 
