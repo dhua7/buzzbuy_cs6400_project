@@ -62,6 +62,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 
+<<<<<<< HEAD
+=======
+	$report_name = "Store Revenue by Year by State";
+	$timestamp = date("Y-m-d H:i:s");
+	
+	// Escape variables for safety
+	$escaped_employeeid = mysqli_real_escape_string($db, $_SESSION['employeeid']);
+	$escaped_timestamp = mysqli_real_escape_string($db, $timestamp);
+	$escaped_report_name = mysqli_real_escape_string($db, $report_name);
+	
+	
+	$audit_query = "INSERT INTO AuditLogEntry (employeeid, timestamp, reportName) VALUES ('$escaped_employeeid', '$escaped_timestamp', '$escaped_report_name')";
+	
+	// Execute the query
+	$result3 = mysqli_query($db, $audit_query);
+	
+	include('lib/show_queries.php');
+	
+	if ($result3 === false) {
+		array_push($error_msg, "Error: Failed to add Audit Log Entry: " . mysqli_error($db));
+	} 
+	
+	}
+
+>>>>>>> main
 ?>
 
 
@@ -146,4 +171,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			}
 		?>
 	</body>	
+	
 </html>
