@@ -141,5 +141,10 @@ CREATE TABLE AuditLogEntry (
     PRIMARY KEY (EmployeeID, Timestamp, ReportName),  
     FOREIGN KEY (EmployeeID) REFERENCES User(EmployeeID), 
     FOREIGN KEY (ReportName) REFERENCES Report(ReportName) 
+<<<<<<< HEAD:buzzbuy/sql/team034_p2_schema.sql
+
+);
+=======
+>>>>>>> main:buzzbuy/sql/team034_p3_schema.sql
 
 );

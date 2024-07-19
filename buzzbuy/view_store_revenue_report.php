@@ -8,6 +8,11 @@ if (!isset($_SESSION['employeeid'])) {
 	exit();
 }
 
+// Include the access control script
+
+include('lib/corpRepAccess.php');
+
+
 // just to display a signed-in user's information 
 $query = "SELECT firstname, lastname " .
 		 "FROM User " .
@@ -22,7 +27,7 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
     array_push($error_msg,  "Query ERROR: Failed to get User information...<br>" . __FILE__ ." line:". __LINE__ );
 }
 
-/* if form was submitted, then execute query to search for friends */
+/* if form was submitted, then execute query to search for state */
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
 	$state = mysqli_real_escape_string($db, $_POST['state']);
@@ -49,8 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 }
 
-// Create an entry in the audit log
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 	$report_name = "Store Revenue by Year by State";
 	$timestamp = date("Y-m-d H:i:s");
@@ -72,12 +75,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		array_push($error_msg, "Error: Failed to add Audit Log Entry: " . mysqli_error($db));
 	} 
 	
-	}
 
 ?>
 
+
 <?php include("lib/header.php"); ?>
 <title>Report: Revenue by Year by State</title>
+
 	</head>
 	
 	<body>
@@ -91,7 +95,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						
 						<div class="profile_section">						
 							<div class="subtitle">Search for State</div> 
-							
 							<form name="searchform" action="view_store_revenue_report.php" method="POST">
 								<table>								
 									<tr>
@@ -103,7 +106,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 									<a href="javascript:searchform.submit();" class="fancy_button">Search</a> 					
 							</form>							
 						</div>
-						
 						<div class='profile_section'>
 						<div class='subtitle'>Search Results</div>
 						<table>
@@ -137,6 +139,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                <?php include("lib/footer.php"); ?>
 		 
 		</div>
+		<!-- add a log entry -->
+		<?php 
+			$report_name = "Report: Revenue by Year by State";
+			$timestamp = date("Y-m-d H:i:s");
+	
+			// Escape variables for safety
+			$escaped_employeeid = mysqli_real_escape_string($db, $_SESSION['employeeid']);
+			$escaped_timestamp = mysqli_real_escape_string($db, $timestamp);
+			$escaped_report_name = mysqli_real_escape_string($db, $report_name);
+
+			$audit_query = "INSERT INTO AuditLogEntry (employeeid, timestamp, reportName) VALUES ('{$escaped_employeeid}', '{$escaped_timestamp}', '{$escaped_report_name}')";
+
+			// Execute the query
+			$result = mysqli_query($db, $audit_query);
+    		include('lib/show_queries.php');
+
+			if ($result === False) {
+				array_push($error_msg, "Error: Failed to add Audit Log Entry: " . mysqli_error($db));
+			}
+		?>
 	</body>	
 	
 </html>
