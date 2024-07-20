@@ -36,6 +36,16 @@ INSERT INTO District (DistrictNumber) VALUES (4);
 INSERT INTO District (DistrictNumber) VALUES (5);
 INSERT INTO District (DistrictNumber) VALUES (6);
 
+INSERT INTO CanAccess (EmployeeID, DistrictNumber) VALUES ('0001', 1);
+INSERT INTO CanAccess (EmployeeID, DistrictNumber) VALUES ('0001', 2);
+INSERT INTO CanAccess (EmployeeID, DistrictNumber) VALUES ('0001', 3);
+INSERT INTO CanAccess (EmployeeID, DistrictNumber) VALUES ('0001', 4);
+INSERT INTO CanAccess (EmployeeID, DistrictNumber) VALUES ('0001', 5);
+INSERT INTO CanAccess (EmployeeID, DistrictNumber) VALUES ('0001', 6);
+INSERT INTO CanAccess (EmployeeID, DistrictNumber) VALUES ('0002', 1);
+INSERT INTO CanAccess (EmployeeID, DistrictNumber) VALUES ('0002', 4);
+INSERT INTO CanAccess (EmployeeID, DistrictNumber) VALUES ('0003', 1);
+INSERT INTO CanAccess (EmployeeID, DistrictNumber) VALUES ('0003', 2);
 
 INSERT INTO City (CityName, State, Population) VALUES ('Gilbert', 'Arizona', 6500000);
 INSERT INTO City (CityName, State, Population) VALUES ('Chesapeake', 'Virginia', 6500000);

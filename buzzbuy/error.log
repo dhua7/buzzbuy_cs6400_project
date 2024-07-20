@@ -328,3 +328,31 @@ Stack trace:
 [18-Jul-2024 12:03:28 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_product_report.php on line 37
 [18-Jul-2024 12:03:32 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\manufacturer_details.php on line 47
 [18-Jul-2024 12:03:45 America/Los_Angeles] PHP Warning:  Undefined variable $user_name in C:\Program Files\Ampps\www\buzzbuy\view_category_report.php on line 38
+[20-Jul-2024 07:00:02 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 146
+[20-Jul-2024 07:00:02 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 152
+[20-Jul-2024 07:00:27 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 146
+[20-Jul-2024 07:00:27 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 152
+[20-Jul-2024 07:00:44 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 146
+[20-Jul-2024 07:00:44 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 152
+[20-Jul-2024 07:01:50 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 146
+[20-Jul-2024 07:01:50 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 152
+[20-Jul-2024 07:06:05 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 154
+[20-Jul-2024 07:06:05 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 160
+[20-Jul-2024 07:06:14 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 154
+[20-Jul-2024 07:06:14 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 160
+[20-Jul-2024 07:06:40 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 154
+[20-Jul-2024 07:06:40 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 160
+[20-Jul-2024 07:06:56 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 154
+[20-Jul-2024 07:06:56 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 160
+[20-Jul-2024 07:07:12 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 154
+[20-Jul-2024 07:07:12 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 160
+[20-Jul-2024 07:21:48 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 161
+[20-Jul-2024 07:21:48 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 167
+[20-Jul-2024 07:21:57 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 161
+[20-Jul-2024 07:21:57 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 167
+[20-Jul-2024 07:22:10 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 161
+[20-Jul-2024 07:22:10 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 167
+[20-Jul-2024 07:22:50 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 161
+[20-Jul-2024 07:22:50 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 167
+[20-Jul-2024 07:23:01 America/Los_Angeles] PHP Warning:  Undefined array key "h_name" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 161
+[20-Jul-2024 07:23:01 America/Los_Angeles] PHP Warning:  Undefined array key "h_date" in C:\Program Files\Ampps\www\buzzbuy\add_holiday.php on line 167
