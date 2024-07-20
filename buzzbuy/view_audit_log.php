@@ -91,8 +91,9 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
                         	<div class="subtitle">View Audit Log</div>   
 							<table>
 								<tr>
-									<td class="heading">Employee ID</td>
 									<td class="heading">Time Stamp</td>
+									<td class="heading">Employee ID</td>
+									<td class="heading">Viewer Name</td>
 									<td class="heading">Report Name</td>
 								</tr>
 																
@@ -101,6 +102,7 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
                                         AuditLogEntry.EmployeeID, 
                                         AuditLogEntry.TimeStamp, 
                                         AuditLogEntry.ReportName,
+										CONCAT(User.LastName, ', ', User.FirstName) as ViewerName,
                                         CASE 
                                             WHEN (
                                                 SELECT COUNT(CanAccess.DistrictNumber)
@@ -113,6 +115,8 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
                                         END AS Highlight
                                     FROM 
                                         AuditLogEntry
+									JOIN
+										User ON AuditLogEntry.EmployeeID = user.EmployeeID
                                     ORDER BY 
                                         AuditLogEntry.timestamp DESC, 
                                         AuditLogEntry.EmployeeID ASC
@@ -128,8 +132,9 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
                                     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                                         $highlightClass = $row['Highlight'];
                                         echo "<tr class='$highlightClass'>";
+										echo "<td>{$row['TimeStamp']}</td>";
                                         echo "<td>{$row['EmployeeID']}</td>";
-                                        echo "<td>{$row['TimeStamp']}</td>";
+										echo "<td>{$row['ViewerName']}</td>";
                                         echo "<td>{$row['ReportName']}</td>";
                                         echo "</tr>";                            
                                     }                                    
