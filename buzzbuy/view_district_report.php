@@ -9,6 +9,10 @@ if (!isset($_SESSION['employeeid'])) {
     exit();
 }
 
+// Include the access control script
+
+include('lib/corpRepAccess.php');
+
 // Fetch user information
 $query = "SELECT firstname, lastname FROM User WHERE User.employeeid='{$_SESSION['employeeid']}'";
 $result = mysqli_query($db, $query);
@@ -139,7 +143,7 @@ if (!$months_result) {
     <!-- add a log entry -->
 	<!-- JL: report_name must be one of names defined in our "report" table, otherwise a log entry won't be added to the table. --> 
 	<?php 
-		$report_name = "Holidays";
+		$report_name = "District Report";
 		$timestamp = date("Y-m-d H:i:s");
 	
 		// Escape variables for safety
