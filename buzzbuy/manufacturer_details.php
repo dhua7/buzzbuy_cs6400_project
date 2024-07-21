@@ -15,7 +15,7 @@ if (!isset($_GET['manufacturer'])) {
 $manufacturerName = urldecode($_GET['manufacturer']);
 
 // Fetch manufacturer summary information
-$query = "SELECT Manufacturer.ManufacturerName, COUNT(Product.PID) AS ProductCount, AVG(Product.RetailPrice) AS AveragePrice, MAX(Product.RetailPrice) AS MaxPrice, MIN(Product.RetailPrice) AS MinPrice
+$query = "SELECT Manufacturer.ManufacturerName, COUNT(Product.PID) AS ProductCount, ROUND(AVG(Product.RetailPrice),2) AS AveragePrice, MAX(Product.RetailPrice) AS MaxPrice, MIN(Product.RetailPrice) AS MinPrice
           FROM Manufacturer JOIN Product ON Product.ManufacturerName = Manufacturer.ManufacturerName
           WHERE Manufacturer.ManufacturerName = '$manufacturerName'
           GROUP BY Manufacturer.ManufacturerName";
