@@ -119,8 +119,7 @@ CREATE TABLE `User` (
 CREATE TABLE Created (
     EmployeeID VARCHAR(7) NOT NULL,
     BusinessDate DATE NOT NULL,
-    FOREIGN KEY (EmployeeID) REFERENCES User(EmployeeID),
-    FOREIGN KEY (BusinessDate) REFERENCES BusinessDay(BusinessDate)
+    FOREIGN KEY (EmployeeID) REFERENCES User(EmployeeID)
 );
 
 CREATE TABLE CanAccess (
