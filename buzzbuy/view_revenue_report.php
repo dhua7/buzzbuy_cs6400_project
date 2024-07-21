@@ -67,8 +67,8 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
                                               CASE WHEN DS.DiscountUnitsSold IS NULL THEN 0 ELSE DS.DiscountUnitsSold END AS DiscountedUnitsSold,
                                               TS.TotalUnitsSold - CASE WHEN DS.DiscountUnitsSold IS NULL THEN 0 ELSE DS.DiscountUnitsSold END AS NonDiscountedUnitsSold,
                                               TS.TotalUnitsSold * TS.RetailPrice - CASE WHEN DS.DiscountedRevenue IS NULL THEN 0 ELSE DS.DiscountedRevenue END AS ActualRevenue,
-                                              TS.TotalUnitsSold * TS.RetailPrice * 0.75 AS PredictedRevenue,
-                                              (TS.TotalUnitsSold * TS.RetailPrice - CASE WHEN DS.DiscountedRevenue IS NULL THEN 0 ELSE DS.DiscountedRevenue END) - (TS.TotalUnitsSold * TS.RetailPrice * 0.75) AS RevenueDifference
+                                              ROUND((TS.TotalUnitsSold * TS.RetailPrice * 0.75),2) AS PredictedRevenue,
+                                              ROUND((TS.TotalUnitsSold * TS.RetailPrice - CASE WHEN DS.DiscountedRevenue IS NULL THEN 0 ELSE DS.DiscountedRevenue END) - (TS.TotalUnitsSold * TS.RetailPrice * 0.75), 2) AS RevenueDifference
                                               FROM (
                                               SELECT
                                               Product.PID,
@@ -114,7 +114,7 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
 										print "<td>{$row['DiscountedUnitsSold']}</td>";
 										print "<td>{$row['NonDiscountedUnitsSold']}</td>";
 										print "<td>{$row['ActualRevenue']}</td>";
-										print "<td>{$row['PredictedPrice']}</td>";
+										print "<td>{$row['PredictedRevenue']}</td>";
 										print "<td>{$row['RevenueDifference']}</td>";
                                         print "</tr>";							
                                     }									
