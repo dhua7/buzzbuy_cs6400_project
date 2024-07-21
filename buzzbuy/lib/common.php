@@ -26,7 +26,7 @@ date_default_timezone_set('America/Los_Angeles');
 
 $error_msg = [];
 $query_msg = [];
-$showQueries = true; 
+$showQueries = false; 
 $showCounts = false; 
 $dumpResults = false;
 

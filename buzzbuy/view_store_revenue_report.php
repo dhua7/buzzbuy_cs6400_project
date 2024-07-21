@@ -108,6 +108,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 						</div>
 						<div class='profile_section'>
 						<div class='subtitle'>Search Results</div>
+						
 						<table>
 							<tr>
 								<td class='heading'>Store Number</td>
@@ -139,26 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                <?php include("lib/footer.php"); ?>
 		 
 		</div>
-		<!-- add a log entry -->
-		<?php 
-			$report_name = "Report: Revenue by Year by State";
-			$timestamp = date("Y-m-d H:i:s");
-	
-			// Escape variables for safety
-			$escaped_employeeid = mysqli_real_escape_string($db, $_SESSION['employeeid']);
-			$escaped_timestamp = mysqli_real_escape_string($db, $timestamp);
-			$escaped_report_name = mysqli_real_escape_string($db, $report_name);
 
-			$audit_query = "INSERT INTO AuditLogEntry (employeeid, timestamp, reportName) VALUES ('{$escaped_employeeid}', '{$escaped_timestamp}', '{$escaped_report_name}')";
-
-			// Execute the query
-			$result = mysqli_query($db, $audit_query);
-    		include('lib/show_queries.php');
-
-			if ($result === False) {
-				array_push($error_msg, "Error: Failed to add Audit Log Entry: " . mysqli_error($db));
-			}
-		?>
 	</body>	
 	
 </html>

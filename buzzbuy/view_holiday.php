@@ -82,6 +82,11 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
             </div>    
 
                <?php include("lib/footer.php"); ?>
+<<<<<<< HEAD
+		</div>
+
+	</body>
+=======
         </div>
         <!-- add a log entry -->
         <!-- JL: report_name must be one of names defined in our "report" table, otherwise a log entry won't be added to the table. --> 
@@ -106,4 +111,5 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
             }
         ?>
     </body>
+>>>>>>> main
 </html>

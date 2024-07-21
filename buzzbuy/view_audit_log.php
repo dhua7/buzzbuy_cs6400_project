@@ -60,6 +60,21 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
 ?>
 
 <?php include("lib/header.php"); ?>
+<style>
+    .highlight {
+        background-color: yellow;
+		color: black
+    }
+	table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 8px;
+                text-align: left;
+            }
+</style>
+
 		<title>BuzzBuy View Audit Log</title>
 	</head>
 	
@@ -76,31 +91,55 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
                         	<div class="subtitle">View Audit Log</div>   
 							<table>
 								<tr>
-									<td class="heading">Employee ID</td>
 									<td class="heading">Time Stamp</td>
+									<td class="heading">Employee ID</td>
+									<td class="heading">Viewer Name</td>
 									<td class="heading">Report Name</td>
 								</tr>
 																
-								<?php								
-                                    $query = "SELECT employeeid, timestamp, reportname " .
-                                             "FROM auditlogentry " .
-                                             "ORDER BY timestamp DESC, EmployeeID ASC";
+								<?php                                
+                                    $query = "SELECT 
+                                        AuditLogEntry.EmployeeID, 
+                                        AuditLogEntry.TimeStamp, 
+                                        AuditLogEntry.ReportName,
+										CONCAT(User.LastName, ', ', User.FirstName) as ViewerName,
+                                        CASE 
+                                            WHEN (
+                                                SELECT COUNT(CanAccess.DistrictNumber)
+                                                FROM CanAccess
+                                                WHERE CanAccess.EmployeeID = AuditLogEntry.EmployeeID
+                                                GROUP BY CanAccess.EmployeeID
+                                                HAVING COUNT(CanAccess.DistrictNumber) = (SELECT COUNT(DistrictNumber) FROM District)
+                                            ) IS NOT NULL THEN 'highlight'
+                                            ELSE ''
+                                        END AS Highlight
+                                    FROM 
+                                        AuditLogEntry
+									JOIN
+										User ON AuditLogEntry.EmployeeID = user.EmployeeID
+                                    ORDER BY 
+                                        AuditLogEntry.timestamp DESC, 
+                                        AuditLogEntry.EmployeeID ASC
+									LIMIT 100";
                                              
                                     $result = mysqli_query($db, $query);
-									include('lib/show_queries.php');
-                                     if (!empty($result) && (mysqli_num_rows($result) == 0) ) {
-                                         array_push($error_msg,  "SELECT ERROR: find AuditLogEntry <br>" . __FILE__ ." line:". __LINE__ );
+                                    include('lib/show_queries.php');
+                                    
+                                    if (!empty($result) && (mysqli_num_rows($result) == 0)) {
+                                        array_push($error_msg, "SELECT ERROR: find AuditLogEntry <br>" . __FILE__ ." line:". __LINE__ );
                                     }
                                     
-                                    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
-                                        print "<tr>";
-                                        print "<td>{$row['employeeid']}</td>";
-                                        print "<td>{$row['timestamp']}</td>";
-										print "<td>{$row['reportname']}</td>";
-                                        print "</tr>";							
-                                    }									
+                                    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                                        $highlightClass = $row['Highlight'];
+                                        echo "<tr class='$highlightClass'>";
+										echo "<td>{$row['TimeStamp']}</td>";
+                                        echo "<td>{$row['EmployeeID']}</td>";
+										echo "<td>{$row['ViewerName']}</td>";
+                                        echo "<td>{$row['ReportName']}</td>";
+                                        echo "</tr>";                            
+                                    }                                    
                                 ?>
-							</table>						
+                            </table>  						
 						</div>	
 					 </div> 
 				</div> 
