@@ -52,7 +52,7 @@ if ( !is_bool($result) && (mysqli_num_rows($result) > 0) ) {
                                     $query = "SELECT assignto.CategoryName, 
                                              COUNT(DISTINCT product.PID) AS TotalProducts, 
                                              COUNT(DISTINCT product.ManufacturerName) AS TotalManufacturers, 
-                                             AVG(product.RetailPrice) AS AvgRetailPrice 
+                                             ROUND(AVG(product.RetailPrice),2) AS AvgRetailPrice 
 											 FROM assignto 
 											 JOIN product ON assignto.PID = product.PID 
 											 GROUP BY assignto.CategoryName 
